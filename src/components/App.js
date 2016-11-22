@@ -6,9 +6,9 @@ import { List, ListItem, makeSelectable } from 'material-ui/List';
 import Star from 'material-ui/svg-icons/toggle/star';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import { pinkA200, } from 'material-ui/styles/colors';
-import 'whatwg-fetch';
 
-const contactsUrl = 'http://demo.sibers.com/users';
+import users from '../../users.json';
+
 const ContactsList = makeSelectable(List);
 
 class App extends Component {
@@ -64,18 +64,11 @@ class App extends Component {
       return;
     }
 
-    fetch(contactsUrl)
-      .then(response => response.json())
-      .then((data) => {
-        const sortedData = _.sortBy(data, ['name']);
+    const sortedData = _.sortBy(users, ['name']);
 
-        this.setState({ contacts: sortedData }, () => {
-          localStorage.setItem('contacts', JSON.stringify(sortedData));
-        });
-      })
-      .catch((err) => {
-        throw new err();
-      });
+    this.setState({ contacts: sortedData }, () => {
+      localStorage.setItem('contacts', JSON.stringify(sortedData));
+    });
   }
 
   render() {
