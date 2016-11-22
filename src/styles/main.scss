@@ -1,0 +1,51 @@
+*, *:before, *:after {
+  box-sizing : border-box;
+}
+
+body {
+  font-family      : 'Roboto', sans-serif;
+  color            : #333;
+  background-color : #fff;
+  margin           : 0;
+  padding          : 0;
+}
+
+header {
+  display          : flex;
+  align-items      : center;
+  color            : #fff;
+  background-color : #0066bb;
+
+  h1 {
+    display : inline-block;
+    padding : 0 20px;
+  }
+
+  input[type="search"] {
+    margin : 0 20px 0 auto;
+  }
+}
+
+section {
+  display : flex;
+  padding : 20px;
+}
+
+.contacts-list {
+  width    : 360px;
+  height   : calc(100vh - 121px);
+  border   : 1px solid #d9d9d9;
+  overflow : auto;
+}
+
+.contact-info {
+  padding-left : 20px;
+}
+
+.editable {
+  border-bottom : 1px dashed #0066bb;
+}
+
+.empty {
+  text-align : center;
+}
